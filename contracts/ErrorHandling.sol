@@ -9,13 +9,12 @@ contract ErrorHandling {
         return "You got got the lucky number";
     }
 
-    function checkIfTrue() external pure returns (string memory) {
+    function checkIfTrue() external pure {
         assert(5 > 1);
-        return "Statement is true";
     }
 
     function testRevert(uint _num) external pure returns (string memory) {
-        if(_num < 1) {
+        if (_num < 1) {
             revert LOWER_THAN_ONE();
         }
         return "Valid number";
