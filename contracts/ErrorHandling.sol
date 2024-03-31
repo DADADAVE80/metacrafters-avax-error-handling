@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity ^0.8.0;
 
-error LOWER_THAN_ONE();
+error LOWER_THAN_FIVE();
 
 contract ErrorHandling {
     function inputLuckyNumber(uint8 _num)
@@ -28,7 +28,7 @@ contract ErrorHandling {
         returns (string memory)
     {
         if (x > 5) {
-            revert LOWER_THAN_ONE();
+            revert LOWER_THAN_FIVE();
         }
         return "It's less than Five";
     }
