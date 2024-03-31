@@ -1,22 +1,35 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
-pragma solidity ^0.8.21;
+pragma solidity ^0.8.0;
 
 error LOWER_THAN_ONE();
 
 contract ErrorHandling {
-    function inputLuckyNumber(uint _num) external pure returns (string memory) {
+    function inputLuckyNumber(uint8 _num)
+        external
+        pure
+        returns (string memory)
+    {
         require(_num == 7, "This is not the lucky number");
         return "You got got the lucky number";
     }
 
-    function checkIfTrue() external pure {
-        assert(5 > 1);
+    function checkIfGreaterThanFive(uint8 x)
+        external
+        pure
+        returns (string memory)
+    {
+        assert(x > 5);
+        return "It's greater than Five";
     }
 
-    function testRevert(uint _num) external pure returns (string memory) {
-        if (_num < 1) {
+    function checkIfLessThanFive(uint8 x)
+        external
+        pure
+        returns (string memory)
+    {
+        if (x > 5) {
             revert LOWER_THAN_ONE();
         }
-        return "Valid number";
+        return "It's less than Five";
     }
 }
